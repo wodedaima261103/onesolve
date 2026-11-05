@@ -1,0 +1,12 @@
+App: RockSort: Six Priorities Daily
+Landing page: https://wodedaima261103.github.io/onesolve/rocksort/
+Tagline: Six tasks a day, starting with the most important one.
+Short description (101 chars): Plan six daily priorities with the Ivy Lee method and Eisenhower Matrix. Offline, no account, no ads.
+
+Long description:
+RockSort is a deliberately minimal daily planner built on two classic ideas: the Ivy Lee method and the Eisenhower Matrix. You write down at most six tasks, tag each one for importance and urgency, and RockSort sorts them into the order you should actually work. The first task gets your best energy; everything else can wait until tomorrow. Everything stays on your iPhone — no account, no ads, no cloud sync. The core six-task routine is free, with optional Pro features for weekly review and annual goals.
+
+Pricing: Monthly and Yearly Pro include a 7-day free trial. Prices are shown in USD; local App Store pricing may differ.
+Plans: Free $0 Forever; Pro monthly $3.99 per month; Pro yearly $29.99 per year; Pro lifetime $69.99 one-time
+
+Contact: onesolve@foxmail.com

@@ -1,0 +1,12 @@
+App: Echora
+Landing page: https://wodedaima261103.github.io/onesolve/echora/
+Tagline: Time brings back what matters.
+Short description (106 chars): A local-first memory keeper: write once, and it returns on the day you chose, with its own arrival ritual.
+
+Long description:
+Echora is a local-first memory keeper for the things you do not want to lose. A line, a photo or a voice letter is written once and delivered on the day you chose, with a small ritual of its own. Three kinds of time shape how it returns: Cherish arrives on a date, Nourish comes back on a cycle, and Await counts down to something you long for. Widgets keep the next arrival visible on the Home Screen, and an optional iCloud backup can live in your own private container. There is no account, no ads and no analytics; your entries, photos and voice letters stay on your device unless you enable your own iCloud backup.
+
+Pricing: Monthly and Yearly include a 7-day free trial — cancel anytime. Lifetime is one payment and never renews.
+Plans: Pro monthly $3.99 per month; Pro yearly $19.99 per year; Lifetime $49.99 one-time
+
+Contact: onesolve@foxmail.com

@@ -1,0 +1,12 @@
+App: Jotlet
+Landing page: https://wodedaima261103.github.io/onesolve/jotlet/
+Tagline: Two seconds to get the thought out.
+Short description (102 chars): Capture text, voice and photos in seconds. On-device notes with no folders, no streaks and no account.
+
+Long description:
+Jotlet is a note app that only records. It never asks you to check in, never counts streaks and never nags you. One large input field sits above the keyboard, with four equal buttons: Text, Voice, Photo and Save. After saving, the keyboard stays up and the cursor stays in the box, so you can keep going without reopening anything. Voice is transcribed into the text box before saving, and photos appear as a thumbnail strip with a short note attached. Search, filter and basic export are free; notes are listed newest first and there is no folder tree to maintain. Related Thoughts and tag suggestions are computed on-device with Apple's NaturalLanguage framework. Your words are never uploaded.
+
+Pricing: No free trial. The free plan is a fully working app with a 30-note cap; Pro is optional.
+Plans: Free $0 Forever; Pro monthly $1.99 per month; Pro yearly $9.99 per year; Pro lifetime $19.99 one-time
+
+Contact: onesolve@foxmail.com

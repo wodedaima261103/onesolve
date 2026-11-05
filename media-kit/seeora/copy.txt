@@ -1,0 +1,12 @@
+App: Seeora
+Landing page: https://wodedaima261103.github.io/onesolve/seeora/
+Tagline: See yourself getting better.
+Short description (105 chars): A quiet habit tracker for daily routines, streaks, backfill and rest days — no guilt, no ads, no account.
+
+Long description:
+Seeora turns the habits you want to build into small daily actions you can complete without thinking. Check in once a day, backfill a missed day, and mark rest days so your streak stays intact when life gets in the way. A heat map and streak stats show progress without push notifications, red badges or guilt. Everything is stored on your device: no account, no ads, no analytics. The free plan covers up to five habits with check-in, backfill, rest days, streaks and the heat map.
+
+Pricing: Pro is a one-time purchase, not a subscription. A 7-day Pro preview can be claimed manually inside the app.
+Plans: Free $0 Forever; Pro lifetime $4.99 one-time
+
+Contact: onesolve@foxmail.com

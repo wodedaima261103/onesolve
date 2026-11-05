@@ -1,0 +1,12 @@
+App: US Paycheck
+Landing page: https://wodedaima261103.github.io/onesolve/us-paycheck/
+Tagline: See your real take-home pay in seconds.
+Short description (108 chars): Estimate take-home pay for all 50 states with federal, state, FICA, Medicare and local city tax — on-device.
+
+Long description:
+US Paycheck estimates what actually lands in your bank account after federal income tax, state tax, FICA, Medicare, 401(k), HSA and SALT withholding. Enter gross pay, choose a pay frequency, and select your state — or type a ZIP code to detect the taxing city. The math runs entirely on your iPhone, with no account, no server and no analytics. It supports hourly, daily, weekly, biweekly, semi-monthly, monthly and annual pay, and each supported tax year can be switched on the home screen. Every rate traces to a primary source, including IRS Rev. Proc. 2025-32 and the 2026 SSA wage base announcement.
+
+Pricing: One-time purchase. No subscription and no renewal. Estimates only — not tax advice.
+Plans: Free $0 Forever; Pro lifetime $3.99 one-time
+
+Contact: onesolve@foxmail.com
