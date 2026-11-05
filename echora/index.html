@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Echora — Time Brings Back What Matters</title>
+<meta name="description" content="Echora is a local-first memory keeper. Write once and it returns on the day you chose, with an arrival ritual, widgets and optional iCloud backup.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230E9A93'/><circle cx='50' cy='50' r='35' fill='none' stroke='%23F7F7F5' stroke-width='8'/><rect x='46' y='15' width='8' height='10' rx='2' fill='%23F7F7F5'/><circle cx='70' cy='30' r='6' fill='%23E0362C'/><circle cx='38' cy='45' r='6' fill='%23F7F7F5'/><circle cx='62' cy='45' r='6' fill='%23F7F7F5'/><path d='M 32 62 Q 50 78 68 62' fill='none' stroke='%23F7F7F5' stroke-width='7' stroke-linecap='round'/></svg>">
+<style>
+:root{
+  --bg:#FFFFFF; --primary:#0E9A93; --primary-dark:#006B5A;
+  --text:#333333; --muted:#777777; --line:#EEEEEE; --soft:#F7F9F8;
+}
+html[data-lang="en"] .zh{display:none !important;}
+html[data-lang="zh"] .en{display:none !important;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;}
+body{
+  background-color:var(--bg); color:var(--text);
+  padding:0 0 calc(48px + env(safe-area-inset-bottom));
+  max-width:1100px; margin:0 auto;
+}
+/* 顶部导航：完美适配手机端，左右两端对齐，绝不错位 */
+nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 20px; border-bottom:1px solid var(--line); margin-bottom:24px;
+}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--primary-dark); font-weight:700; font-size:20px;}
+.brand svg{width:36px; height:36px;}
+.lang{display:flex; gap:8px;}
+.lang button{
+  font:inherit; font-size:13px; padding:6px 12px; border-radius:8px; cursor:pointer;
+  background:transparent; color:var(--primary); border:1px solid var(--primary); transition:.18s;
+}
+html[data-lang="en"] .lang button[data-lang="en"],
+html[data-lang="zh"] .lang button[data-lang="zh"]{ background:var(--primary); color:#fff; }
+
+.header{text-align:center; margin-bottom:56px; padding:0 20px;}
+.header .mark{width:120px; height:120px; margin:0 auto 20px; display:block;}
+.header h1{font-size:32px; margin-bottom:16px; color:var(--primary-dark); letter-spacing:.5px;}
+.header .tagline{font-size:20px; line-height:1.5; margin-bottom:10px;}
+.header p{max-width:700px; margin:0 auto; font-size:17px; line-height:1.65; opacity:.85;}
+.meta{margin-top:22px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; font-size:13px; color:var(--muted);}
+.meta span{padding:4px 10px; border:1px solid var(--line); border-radius:999px;}
+.container{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:24px; padding:0 20px;}
+.card{border:1px solid var(--line); border-radius:16px; padding:26px 24px; display:flex; flex-direction:column; align-items:center; text-align:center; background:#fff; transition:.2s;}
+.card:hover{box-shadow:0 4px 16px rgba(14,154,147,.12);}
+.icon-wrap{width:72px; height:72px; margin-bottom:16px;}
+.card h2{font-size:19px; margin-bottom:8px;}
+.card .en-name{font-size:11px; letter-spacing:1.4px; font-weight:600; color:var(--muted); margin-bottom:10px; text-transform:uppercase;}
+.card p{font-size:14.5px; line-height:1.6; color:#555;}
+.card .rel{margin-top:14px; padding-top:12px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); text-align:left; width:100%;}
+.card .rel strong{color:var(--primary);}
+.section-title{text-align:center; margin:56px 0 26px; padding:0 20px;}
+.section-title h2{font-size:24px; color:var(--primary-dark); margin-bottom:8px;}
+.section-title p{font-size:14.5px; color:var(--muted);}
+
+/* 定价模块 */
+.pricing{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; padding:0 20px; max-width:960px; margin:0 auto;}
+.price-card{border:1px solid var(--line); border-radius:16px; padding:30px 24px; text-align:center; background:#fff;}
+.price-card.hi{border:2px solid var(--primary); position:relative;}
+.badge{position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--primary); color:#fff; font-size:12px; font-weight:600; padding:4px 12px; border-radius:999px;}
+.price-card .title{font-size:18px; font-weight:600; margin-bottom:10px;}
+.price-card .price{font-size:32px; font-weight:700; color:var(--text); margin-bottom:16px;}
+.price-card .price span{font-size:14px; font-weight:400; color:var(--muted);}
+.price-card ul{list-style:none; text-align:left; font-size:14px; color:#555; margin-bottom:24px; line-height:1.8; padding-left:20px;}
+.price-card ul li::before{content:"✓"; color:var(--primary); font-weight:bold; display:inline-block; width:20px; margin-left:-20px;}
+.btn{display:block; width:100%; padding:12px; border-radius:12px; border:0; background:var(--soft); color:var(--primary); font-weight:600; cursor:pointer; font-size:15px;}
+.btn.primary{background:var(--primary); color:#fff;}
+
+.download{margin-top:56px; padding:34px 20px; text-align:center; border-top:1px solid var(--line);}
+.download .note{font-size:13px; color:var(--muted); margin-top:10px;}
+footer{margin-top:44px; display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:center; font-size:13px; color:var(--muted); padding:0 20px;}
+footer a{color:var(--muted); text-decoration:none;}
+footer a:hover{color:var(--primary);}
+footer .copy{flex:1 1 100%; text-align:center; margin-top:6px; opacity:.7;}
+@media (max-width:640px){
+  .header .mark{width:86px; height:86px; margin-bottom:14px;}
+  .header h1{font-size:26px;}
+  .container{grid-template-columns:1fr;}
+  .pricing{grid-template-columns:1fr;}
+}
+</style>
+<link rel="canonical" href="https://wodedaima261103.github.io/onesolve/echora/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OneSolve Studio">
+<meta property="og:title" content="Echora — Time Brings Back What Matters">
+<meta property="og:description" content="A local-first memory keeper: write once, and it returns on the day you chose, with its own arrival ritual.">
+<meta property="og:url" content="https://wodedaima261103.github.io/onesolve/echora/">
+<meta property="og:image" content="https://wodedaima261103.github.io/onesolve/assets/og/echora.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Echora — Time Brings Back What Matters">
+<meta name="twitter:description" content="A local-first memory keeper: write once, and it returns on the day you chose, with its own arrival ritual.">
+<meta name="twitter:image" content="https://wodedaima261103.github.io/onesolve/assets/og/echora.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Echora",
+  "description": "A local-first memory keeper: write once, and it returns on the day you chose, with its own arrival ritual. Echora is a local-first memory keeper for the things you do not want to lose.",
+  "operatingSystem": "iOS",
+  "applicationCategory": "LifestyleApplication",
+  "url": "https://wodedaima261103.github.io/onesolve/echora/",
+  "image": "https://wodedaima261103.github.io/onesolve/assets/og/echora.png",
+  "screenshot": [
+    "https://wodedaima261103.github.io/onesolve/assets/shots/echora-1.png",
+    "https://wodedaima261103.github.io/onesolve/assets/shots/echora-2.png",
+    "https://wodedaima261103.github.io/onesolve/assets/shots/echora-3.png",
+    "https://wodedaima261103.github.io/onesolve/assets/shots/echora-4.png",
+    "https://wodedaima261103.github.io/onesolve/assets/shots/echora-5.png"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Pro monthly (per month)",
+      "price": "3.99",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro yearly (per year)",
+      "price": "19.99",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "Lifetime (one-time)",
+      "price": "49.99",
+      "priceCurrency": "USD"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "OneSolve Studio",
+    "url": "https://wodedaima261103.github.io/onesolve/"
+  }
+}
+</script>
+<style>
+.os-skip{position:absolute;left:-9999px;top:0;background:#006B5A;color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:99;}
+.os-skip:focus{left:0;}
+.os-short{font-size:15px;line-height:1.6;color:#555;margin:12px 0 0;}
+.os-extra{max-width:1100px;margin:0 auto;padding:0 20px 40px;}
+.os-extra h2{font-size:24px;color:var(--primary-dark);margin:48px 0 14px;}
+.os-extra h3{font-size:17px;margin:22px 0 6px;}
+.os-extra p,.os-extra li{font-size:15.5px;line-height:1.65;color:#444;}
+.os-extra ul,.os-extra ol{padding-left:22px;}
+.os-extra .os-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin-top:12px;}
+.os-extra .os-card{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff;}
+.os-extra .os-shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-top:12px;}
+.os-extra .os-shots img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);}
+.os-extra .os-btn{display:inline-block;margin:6px 8px 6px 0;padding:12px 18px;border-radius:12px;background:var(--primary);color:#fff;text-decoration:none;font-weight:700;}
+.os-extra .os-btn.ghost{background:transparent;color:var(--primary-dark);border:1px solid var(--primary);}
+.os-extra .os-note{font-size:13px;color:#777;}
+.os-extra .os-related{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+.os-extra .os-related a{padding:8px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--primary-dark);font-size:14px;}
+</style>
+</head>
+<body data-title-en="Echora — Time Brings Back What Matters" data-title-zh="Echora — 让过去的你，回来问你">
+
+<a class="os-skip" href="#main">Skip to content</a>
+<nav>
+  <a href="#" class="brand">
+    <svg viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0E9A93"/><circle cx="50" cy="50" r="35" fill="none" stroke="#F7F7F5" stroke-width="8"/><rect x="46" y="15" width="8" height="10" rx="2" fill="#F7F7F5"/><circle cx="70" cy="30" r="6" fill="#E0362C"/><circle cx="38" cy="45" r="6" fill="#F7F7F5"/><circle cx="62" cy="45" r="6" fill="#F7F7F5"/><path d="M 32 62 Q 50 78 68 62" fill="none" stroke="#F7F7F5" stroke-width="7" stroke-linecap="round"/></svg>
+    <span>Echora</span>
+  </a>
+  <div class="lang">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+  </div>
+</nav>
+<main id="main">
+
+<header class="header">
+  <h1>Echora — Time brings back what matters.</h1>
+  <p class="tagline en">Time brings back what matters.</p>
+  <p class="tagline zh">让过去的你，回来问你</p>
+  <p class="en">A local-first memory keeper. Write it down once, and it comes back to you — on the day you chose, with a small ritual of its own.</p>
+  <p class="zh">一款「本地优先」的记忆应用。写下一次，它会在你选定的那天回来找你，带着一场属于它自己的小仪式。</p>
+  <div class="meta">
+    <span class="en">No account</span><span class="zh">无账号</span>
+    <span class="en">No ads</span><span class="zh">无广告</span>
+    <span class="en">Data stays on your device</span><span class="zh">数据留在本机</span>
+  </div>
+<p class="os-short">A local-first memory keeper: write once, and it returns on the day you chose, with its own arrival ritual.</p>
+</header>
+
+<div class="section-title">
+  <h2 class="en">Three kinds of time</h2>
+  <h2 class="zh">三种时间，三种回看方式</h2>
+  <p class="en">How something comes back is decided by what kind of thing it is.</p>
+  <p class="zh">该什么时候回来，由这件事本身决定。</p>
+</div>
+
+<div class="container">
+  <article class="card">
+    <span class="en-name">Cherish</span>
+    <h2 class="en">Worth remembering</h2>
+    <h2 class="zh">应该记住的</h2>
+    <p class="en">A line, a photo, a voice letter. It arrives on the day you set, so you meet it again.</p>
+    <p class="zh">一句话、一张照片、一段录音。在你定下的那天送达，让你重新遇见它。</p>
+    <div class="rel"><span class="en">Relationship with time: it <strong>comes to you</strong></span><span class="zh">与时间的关系：它 <strong>主动来</strong> 找你</span></div>
+  </article>
+  <article class="card">
+    <span class="en-name">Nourish</span>
+    <h2 class="en">Worth living again</h2>
+    <h2 class="zh">值得反复过的</h2>
+    <p class="en">Give it a rhythm — every 7 days, every 30, or any scale you like. It comes back on its own.</p>
+    <p class="zh">给它一个周期——每 7 天、每 30 天，或你想要的任何刻度。它会按周期重逢。</p>
+    <div class="rel"><span class="en">Relationship with time: you two meet <strong>on a cycle</strong></span><span class="zh">与时间的关系：你们 <strong>周期性</strong> 见面</span></div>
+  </article>
+  <article class="card">
+    <span class="en-name">Await</span>
+    <h2 class="en">Longed for</h2>
+    <h2 class="zh">特别期盼的</h2>
+    <p class="en">A birthday, an anniversary, a show. When the countdown hits zero, the story is handed to you.</p>
+    <p class="zh">生日、周年、那场还没看的演出。倒数日归零那天，它才把故事交给你。</p>
+    <div class="rel"><span class="en">Relationship with time: you <strong>walk toward it</strong></span><span class="zh">与时间的关系：你 <strong>朝它走</strong> 过去</span></div>
+  </article>
+</div>
+
+<div class="section-title">
+  <h2 class="en">What makes it feel different</h2>
+  <h2 class="zh">让它不一样的几件事</h2>
+</div>
+
+<div class="container">
+  <article class="card">
+    <h2 class="en">An arrival ritual</h2>
+    <h2 class="zh">抵达仪式</h2>
+    <p class="en">Full-screen light, motion and a line written for this one moment. Four levels of ceremony intensity, from a quiet check-in to a full celebration.</p>
+    <p class="zh">全屏的光、动效，和一句为这一刻写下的话。四种隆重程度，从安静的确认到盛大的庆祝。</p>
+  </article>
+  <article class="card">
+    <h2 class="en">Widgets on Home Screen</h2>
+    <h2 class="zh">桌面小组件</h2>
+    <p class="en">Keep what matters close. Add a widget to see your next arrival, countdown, or a piece of your past right on your Home Screen.</p>
+    <p class="zh">把重要的东西放在手边。添加小组件，无需打开 App 就能看到下一次抵达和往昔回忆。</p>
+  </article>
+  <article class="card">
+    <h2 class="en">Private by design</h2>
+    <h2 class="zh">隐私优先</h2>
+    <p class="en">No account, no ads, no analytics. Your entries, photos and voice letters never leave your device. And you can erase everything Echora stores, on one tap, from Settings.</p>
+    <p class="zh">无账号、无广告、无统计分析。你的条目、照片与语音信不会离开你的设备。而 Echora 存在本机的一切，都能在「设置」里一键删除。</p>
+  </article>
+</div>
+
+<div class="section-title" style="margin-top:80px;">
+  <h2 class="en">Pricing</h2>
+  <h2 class="zh">定价方案</h2>
+  <p class="en">Three ways to go Pro. Monthly and yearly include a 7-day free trial — cancel anytime.</p>
+  <p class="zh">三种升级方式。月付与年付均含 7 天免费试用，随时可取消。</p>
+</div>
+
+<div class="pricing">
+  <div class="price-card">
+    <div class="title"><span class="en">Monthly</span><span class="zh">月付</span></div>
+    <div class="price">$3.99<span>/mo</span></div>
+    <ul>
+      <li><span class="en">Unlimited memories</span><span class="zh">无限记忆</span></li>
+      <li><span class="en">All Pro features</span><span class="zh">全部专业功能</span></li>
+      <li><span class="en">Cancel anytime</span><span class="zh">随时取消</span></li>
+      <li><strong><span class="en">7-day free trial</span><span class="zh">7 天免费试用</span></strong></li>
+    </ul>
+    <button class="btn primary"><span class="en">Start Free Trial</span><span class="zh">开始免费试用</span></button>
+  </div>
+  <div class="price-card hi">
+    <div class="badge"><span class="en">Best Value</span><span class="zh">最划算</span></div>
+    <div class="title"><span class="en">Yearly</span><span class="zh">年付</span></div>
+    <div class="price">$19.99<span>/yr</span></div>
+    <ul>
+      <li><span class="en">Unlimited memories</span><span class="zh">无限记忆</span></li>
+      <li><span class="en">Monthly &amp; yearly trends</span><span class="zh">月度与年度趋势</span></li>
+      <li><span class="en">PDF report export</span><span class="zh">PDF 报告导出</span></li>
+      <li><span class="en">Advanced icon styles</span><span class="zh">高级图标样式</span></li>
+      <li><strong><span class="en">7-day free trial</span><span class="zh">7 天免费试用</span></strong></li>
+    </ul>
+    <button class="btn primary"><span class="en">Start Free Trial</span><span class="zh">开始免费试用</span></button>
+  </div>
+  <div class="price-card">
+    <div class="title"><span class="en">Lifetime</span><span class="zh">买断</span></div>
+    <div class="price">$49.99<span>/once</span></div>
+    <ul>
+      <li><span class="en">All Pro features</span><span class="zh">全部专业功能</span></li>
+      <li><span class="en">One-time purchase</span><span class="zh">一次性买断</span></li>
+      <li><span class="en">No subscription</span><span class="zh">无需订阅</span></li>
+      <li><span class="en">Forever yours</span><span class="zh">永久拥有</span></li>
+    </ul>
+    <button class="btn"><span class="en">Buy Once</span><span class="zh">一次买断</span></button>
+  </div>
+</div>
+
+<div class="download">
+  <span class="btn primary en" style="display:inline-block; width:auto; padding:12px 32px;">Coming soon on the App Store</span>
+  <span class="btn primary zh" style="display:inline-block; width:auto; padding:12px 32px;">即将上架 App Store</span>
+</div>
+
+</main>
+<footer>
+  <a href="privacy.html" class="en">Privacy Policy</a><a href="privacy.html" class="zh">隐私政策</a>
+  <a href="terms.html" class="en">Terms of Service</a><a href="terms.html" class="zh">使用条款</a>
+  <a href="support.html" class="en">Support</a><a href="support.html" class="zh">支持与联系</a>
+  <span class="copy en">© 2026 Echora</span>
+  <span class="copy zh">© 2026 Echora</span>
+</footer>
+
+<script>
+(function () {
+  var KEY = 'echora_lang';
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    var b = document.body;
+    document.title = lang === 'zh' ? (b.dataset.titleZh || document.title) : (b.dataset.titleEn || document.title);
+    var btns = document.querySelectorAll('.lang button');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute('aria-pressed', btns[i].dataset.lang === lang ? 'true' : 'false');
+    }
+    try { localStorage.setItem(KEY, lang); } catch (e) {}
+  }
+  function init() {
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    if (!saved) {
+      saved = ((navigator.language || '').toLowerCase().indexOf('zh') === 0) ? 'zh' : 'en';
+    }
+    setLang(saved);
+    var btns = document.querySelectorAll('.lang button');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function () { setLang(this.dataset.lang); });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<section class="os-extra" aria-label="OneSolve product details">
+  <h2 id="download">Download</h2>
+  <p><a class="os-btn" href="#download" data-needs-store-link="App Store URL pending">Coming soon to the App Store</a> <span class="os-note">The store link is marked data-needs-store-link until the listing is live.</span></p>
+  <h2>What it does</h2>
+  <p>A local-first memory keeper: write once, and it returns on the day you chose, with its own arrival ritual.</p>
+  <p>Echora is a local-first memory keeper for the things you do not want to lose.</p><p>A line, a photo or a voice letter is written once and delivered on the day you chose, with a small ritual of its own.</p><p>Three kinds of time shape how it returns: Cherish arrives on a date, Nourish comes back on a cycle, and Await counts down to something you long for.</p><p>Widgets keep the next arrival visible on the Home Screen, and an optional iCloud backup can live in your own private container.</p><p>There is no account, no ads and no analytics; your entries, photos and voice letters stay on your device unless you enable your own iCloud backup.</p>
+  <h2>Key features</h2>
+  <div class="os-grid"><div class="os-card"><h3>Three kinds of time</h3><p>Cherish, Nourish and Await cover one-off memories, recurring reflections and countdowns.</p></div><div class="os-card"><h3>Arrival ritual</h3><p>Full-screen light, motion and a line written for the moment, with four levels of ceremony intensity.</p></div><div class="os-card"><h3>Home Screen widgets</h3><p>See the next arrival, a countdown or a piece of your past without opening the app.</p></div><div class="os-card"><h3>Local-first by design</h3><p>No account, no ads, no analytics; entries and voice letters stay on the device.</p></div><div class="os-card"><h3>Optional iCloud backup</h3><p>Backups can be written to your own private iCloud container, which the developer cannot read.</p></div><div class="os-card"><h3>Export and import</h3><p>Export a JSON backup and restore it later from Settings.</p></div><div class="os-card"><h3>Delete everything</h3><p>One tap in Settings erases every memory, voice letter, mood entry and scheduled reminder.</p></div></div>
+  <h2>Who it's for / Use cases</h2>
+  <div class="os-grid"><div class="os-card"><h3>Memory keeping</h3><p>Save a moment once and meet it again on a date that matters.</p></div><div class="os-card"><h3>Relationships</h3><p>Birthdays, anniversaries and letters that arrive when the time is right.</p></div><div class="os-card"><h3>Reflection and journaling</h3><p>A recurring prompt brings a past entry back into view.</p></div><div class="os-card"><h3>Counting down</h3><p>Concerts, trips and milestones that you want to walk toward.</p></div></div>
+  <h2>Pricing details</h2>
+  <p>Monthly and Yearly include a 7-day free trial — cancel anytime. Lifetime is one payment and never renews.</p>
+  <ul><li><strong>Pro monthly</strong> — $3.99 per month. Unlimited memories, All Pro features, 7-day free trial, Cancel anytime</li><li><strong>Pro yearly</strong> — $19.99 per year. Unlimited memories, Monthly and yearly trends, PDF report export, 7-day free trial</li><li><strong>Lifetime</strong> — $49.99 one-time. All Pro features, One-time purchase, No subscription, Forever yours</li></ul>
+  <p class="os-note">Prices shown in USD; actual App Store price varies by region. Purchases are processed by Apple.</p>
+  <h2>Screenshots</h2>
+  <div class="os-shots"><figure><picture><source srcset="../assets/shots/echora-1.webp" type="image/webp"><img src="../assets/shots/echora-1.png" width="300" height="649" alt="Echora home screen with upcoming arrivals" loading="lazy" decoding="async"></picture></figure><figure><picture><source srcset="../assets/shots/echora-2.webp" type="image/webp"><img src="../assets/shots/echora-2.png" width="300" height="649" alt="Echora arrival ritual with candlelight" loading="lazy" decoding="async"></picture></figure><figure><picture><source srcset="../assets/shots/echora-3.webp" type="image/webp"><img src="../assets/shots/echora-3.png" width="300" height="649" alt="Echora photo memory arrival screen" loading="lazy" decoding="async"></picture></figure><figure><picture><source srcset="../assets/shots/echora-4.webp" type="image/webp"><img src="../assets/shots/echora-4.png" width="300" height="649" alt="Echora countdown arrival screen" loading="lazy" decoding="async"></picture></figure><figure><picture><source srcset="../assets/shots/echora-5.webp" type="image/webp"><img src="../assets/shots/echora-5.png" width="300" height="649" alt="Echora past memory review screen" loading="lazy" decoding="async"></picture></figure></div>
+  <h2>Contact / Cooperation</h2>
+  <p>For support, press or creator collaborations: <a href="mailto:onesolve@foxmail.com">onesolve@foxmail.com</a>. Product pages: <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="terms.html">Terms</a>.</p>
+  <h2>More from OneSolve</h2>
+  <div class="os-related"><a href="../rocksort/">RockSort</a><a href="../seeora/">Seeora</a><a href="../us-paycheck/">US Paycheck</a><a href="../jotlet/">Jotlet</a><a href="../media-kit/">Media Kit</a><a href="../contact/">Contact</a></div>
+</section>
+</body>
+</html>
