@@ -1,0 +1,28 @@
+# OneSolve Studio
+
+> Independent iOS studio making focused, local-first apps. One app, one problem. No ads, no accounts, no tracking.
+
+OneSolve apps keep working data on the device. Prices are in USD and vary by App Store region. Contact: onesolve@foxmail.com
+
+## Apps
+
+- [RockSort: Six Priorities Daily](https://wodedaima261103.github.io/onesolve/rocksort/): Plan six daily priorities with the Ivy Lee method and Eisenhower Matrix. Offline, no account, no ads.
+- [Seeora](https://wodedaima261103.github.io/onesolve/seeora/): A quiet habit tracker for daily routines, streaks, backfill and rest days — no guilt, no ads, no account.
+- [US Paycheck](https://wodedaima261103.github.io/onesolve/us-paycheck/): Estimate take-home pay for all 50 states with federal, state, FICA, Medicare and local city tax — on-device.
+- [Jotlet](https://wodedaima261103.github.io/onesolve/jotlet/): Capture text, voice and photos in seconds. On-device notes with no folders, no streaks and no account.
+- [Echora](https://wodedaima261103.github.io/onesolve/echora/): A local-first memory keeper: write once, and it returns on the day you chose, with its own arrival ritual.
+
+## Pages
+
+- [About](https://wodedaima261103.github.io/onesolve/about/): OneSolve Studio background and principles.
+- [Contact](https://wodedaima261103.github.io/onesolve/contact/): support, press, directory and creator enquiries.
+- [Media Kit](https://wodedaima261103.github.io/onesolve/media-kit/): 512px icons, screenshots and press copy for every app.
+- [Privacy Policy](https://wodedaima261103.github.io/onesolve/privacy-policy/): local storage, optional Echora iCloud backup, RevenueCat purchase status and deletion steps.
+- [Support & FAQ](https://wodedaima261103.github.io/onesolve/support/): per-app purchase, data and troubleshooting answers.
+- [Terms of Use](https://wodedaima261103.github.io/onesolve/terms/): licence, purchases, refunds and estimates disclaimer.
+
+## Notes
+
+- App Store links are pending. Product pages mark download buttons with data-needs-store-link.
+- No ratings, download counts or reviews are published because none are verified.
+- Decision General (我有数) has no public page yet; the path /decision-general/ is reserved.

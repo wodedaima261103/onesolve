@@ -1,0 +1,4 @@
+Contact: mailto:onesolve@foxmail.com
+Expires: 2027-11-04T00:00:00.000Z
+Canonical: https://wodedaima261103.github.io/onesolve/.well-known/security.txt
+Preferred-Languages: en, zh

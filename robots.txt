@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Public site only. Build notes and internal launch documents stay out of the index.
+Disallow: /_internal/
+
+Sitemap: https://wodedaima261103.github.io/onesolve/sitemap.xml

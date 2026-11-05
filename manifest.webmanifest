@@ -1,0 +1,24 @@
+{
+  "name": "OneSolve Studio",
+  "short_name": "OneSolve",
+  "description": "Focused, local-first iOS apps: RockSort, Seeora, US Paycheck, Jotlet and Echora.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F8FAFB",
+  "theme_color": "#00A898",
+  "icons": [
+    {
+      "src": "assets/icons/onesolve-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/onesolve-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
